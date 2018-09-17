@@ -1,15 +1,19 @@
 package in.eldhopj.architecturecomponents_mvvmmodelsample;
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+
+
+/**Create a database named note_table*/
+@Entity(tableName = "note_table") //Note : if we didn't give "(tableName = "note_table")" the db name will be "NoteEntity"
 
 public class NoteEntity {
 
     /**
      * Room will autoGenerate columns for these fields
      */
-    @PrimaryKey(autoGenerate = true)
-    //Room will auto generate the ID , we don't wanna worry about it
+    @PrimaryKey(autoGenerate = true)//Room will auto generate the ID , we don't wanna worry about it
     private int id;
     private String title;
     private String description;
