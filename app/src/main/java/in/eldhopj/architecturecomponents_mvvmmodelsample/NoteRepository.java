@@ -38,7 +38,7 @@ public class NoteRepository {
         new DeleteAllNotesAsyncTask(noteDao).execute();
     }
 
-    //NOTE : LiveData will execute all the db operations in the background thread
+    //NOTE : LiveData will execute all the db operations in the background thread, so there is no need of Async task
     public LiveData<List<NoteEntity>> getAllNotes() {
         return allNotes;
     }
