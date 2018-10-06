@@ -1,10 +1,14 @@
-package in.eldhopj.architecturecomponents_mvvmmodelsample;
+package in.eldhopj.architecturecomponents_mvvmmodelsample.RoomDb.Repository;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
 import java.util.List;
+
+import in.eldhopj.architecturecomponents_mvvmmodelsample.RoomDb.DataBase.NoteDao;
+import in.eldhopj.architecturecomponents_mvvmmodelsample.RoomDb.DataBase.NoteDatabase;
+import in.eldhopj.architecturecomponents_mvvmmodelsample.RoomDb.DataBase.NoteEntity;
 
 /**
  * Repository is a way to abstract all the database operations including in n/w and provides a clean API to the rest of the app

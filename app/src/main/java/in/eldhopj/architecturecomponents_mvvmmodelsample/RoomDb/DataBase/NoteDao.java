@@ -1,4 +1,4 @@
-package in.eldhopj.architecturecomponents_mvvmmodelsample;
+package in.eldhopj.architecturecomponents_mvvmmodelsample.RoomDb.DataBase;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
