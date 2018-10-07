@@ -21,8 +21,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private OnItemClickListener mListener; // Listener for the OnItemClickListener interface
 
     //constructor
-    public RecyclerAdapter(List<NoteEntity> listItems, Context context) { // constructor
-        this.mListItems = listItems;
+    public RecyclerAdapter( Context context) { // constructor
         this.mContext = context;
     }
 
@@ -97,5 +96,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 }
             });
         }
+    }
+    public void setData(List<NoteEntity> items) {
+        mListItems = items;
+        notifyDataSetChanged();
     }
 }

@@ -37,5 +37,6 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
 
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
-    annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"//use this if u are using Java 8 ->  implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
+    annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
+//use this if u are using Java 8 ->  implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
 }
