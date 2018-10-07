@@ -101,4 +101,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         mListItems = items;
         notifyDataSetChanged();
     }
+
+    public NoteEntity getNoteAt(int position){
+
+        return mListItems.get(position);
+ }
 }
