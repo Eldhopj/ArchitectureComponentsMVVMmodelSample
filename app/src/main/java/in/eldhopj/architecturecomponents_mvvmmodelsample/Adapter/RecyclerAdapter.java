@@ -28,12 +28,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     /**
      * interface will forward our click from adapter to our main activity
      */
-    public interface OnItemClickListener {
-        void onItemClick(View view, int position);
-    }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, NoteEntity note);
     }
 
     @NonNull
@@ -89,7 +90,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                     if (mListener != null) {
                         int position = getAdapterPosition(); // Get the index of the view holder
                         if (position != RecyclerView.NO_POSITION) { // Makes sure this position is still valid
-                            mListener.onItemClick(v,position); // we catch the click on the item view then pass it over the interface and then to our activity
+                            mListener.onItemClick(v,mListItems.get(position)); // we catch the click on the item view then pass it over the interface and then to our activity
                         }
                     }
 
@@ -97,6 +98,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             });
         }
     }
+
+
     public void setData(List<NoteEntity> items) {
         mListItems = items;
         notifyDataSetChanged();

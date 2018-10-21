@@ -21,6 +21,9 @@ import in.eldhopj.architecturecomponents_mvvmmodelsample.RoomDb.ViewModel.NoteVi
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+    public static final String FROM_EDIT_NOTES ="editNote";
+    public static final String EDIT_NOTE= "note";
+
     //Define the variables
     private RecyclerView mRecyclerView;
     private RecyclerAdapter mRecyclerAdapter;
@@ -39,10 +42,20 @@ public class MainActivity extends AppCompatActivity {
         noteViewModel.getAllnotes()
                 .observe(this, new Observer<List<NoteEntity>>() {
                     @Override
-                    public void onChanged(@Nullable List<NoteEntity> noteEntities) { // This will trigger every time there is a data changemListItems = noteEntities;
+                    public void onChanged(@Nullable List<NoteEntity> noteEntities) { // This will trigger every time there is a data change mListItems = noteEntities;
                         mRecyclerAdapter.setData(noteEntities);
                     }
                 });
+
+        mRecyclerAdapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, NoteEntity note) {
+                Intent intent = new Intent(getApplicationContext(),AddNoteActivity.class);
+                intent.putExtra(FROM_EDIT_NOTES,true); // passes true if its for editing
+                intent.putExtra(EDIT_NOTE,note);
+                startActivity(intent);
+            }
+        });
 
     }
 
